@@ -10,3 +10,15 @@
     1.在程序中写if和else要考虑的情况比只写if要复杂一点，只写if的话，只要管条件成立的情况，不用再去想条件不成立的情况。
     2.当想要一个元素显示几秒再消失时，可以使用$("element").show(0).delay(num).hide(0)，而且show和hide都要有参数，否则delay不会起作用。delay会把要执行的事件排队，依次执行，因此才会有弹出的一个div显示超出时间很长时间才消失的bug。最后使用.clearQueue()清除还没执行的事件队列。
     3.当需要页面上展示的信息和拿到的数组里的信息不一样，比如数组里的数据是“旅行手记”，想在页面展示“旅游手记”，可以使用{'旅行手记'：'旅游手记'}这种方法来把数据映射过来。
+2014/1/27 周一 20：47
+    1.off()
+        描述：移除事件的控制器；
+        .off(events[,selector][,handler(eventObject)])：
+            events的类型是string，可以是空格隔开的事件类型、可选的命名空间或者命名空间，像"click","keydown.myPlugin"或者".myPlugin"；
+            selector类型string，和最初传给.on（）的selector应该相匹配；
+            handler(eventObject)类型是F()，在off之前绑定在事件上的控制器，或者特殊的值false。
+        .off(events [,selector]):
+            events类型PlainObject，字符串键值代表空格隔开的事件类型、可选的命名空间或者命名空间的对象；
+            selector类型String和最初传给.on（）的selector应该相匹配。
+         .off():
+            不接受任何参数。
