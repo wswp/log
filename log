@@ -22,3 +22,8 @@
             selector类型String和最初传给.on（）的selector应该相匹配。
          .off():
             不接受任何参数。
+2014/2/7 周五 21：04
+    网站的引导涉及到cookie、可能还有自适应、元素的定位、storage等等。只是一个概念，具体的我还没有做过。在这先记录一下。
+    Web Storage实际上由两部分组成：sessionStorage与localStorage。 sessionStorage用于本地存储一个会话（session）中的数据，
+    这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。
+    localStorage用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。
