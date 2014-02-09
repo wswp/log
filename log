@@ -39,3 +39,126 @@
     还有一个没有改过来的缺点，看书过程中要去查看不懂的点。
     linux卸载apache：sudo apt-get remove apache*
                     sudo apt-get autoremove
+2014/2/9 周日 10：56
+    刻镜像、装系统、装chrome、装git、装phpstorm。
+    装完phpstorm后没有在菜单中看到，要建立快捷方式才行。
+    之后就是php环境的安装了。
+    按照http://blog.csdn.net/warren912/article/details/17486211#安装的。
+    1.安装apache2
+        sudo apt-get install apache2
+        Apache安装成功后，/var/www/默认作为web的根目录，所有web资源都应该放在该目录或其子目录中。
+    2.安装PHP5并测试
+        sudo apt-get install php5 libapache2-mod-php5
+        新建/var/www/phptest.php文件，文件内容如下：
+            <?php phpinfo(); ?>
+        在浏览器中输入以下网址：
+            http://localhost/phptest.php
+        如果打开了php信息页面，则说明一切正常。
+        我看到了期待看到的。
+    3.安装MySQL5
+        这是个关键的步骤，上一次我就没弄好。不知道为什么卡住不动了，希望这一次能顺利。
+        sudo apt-get install mysql-server
+        过程中让输入密码，我输了两次，每次密码都一样，上一次我空着。
+        没有问题，装完了。
+    4.安装MySQL Administrator
+        sudo apt-get install mysql-admin
+        执行命令，得到的提示是：
+            E: 未发现软件包 mysql-admin
+        我换成mysql-administrator,得到的提示：
+            E: 未发现软件包 mysql-administrator
+        我知道是不是有这个软件包，反正我得到的提示是没有。
+        之后我试了一下：进入目录/var/lib下，执行 mysql -u root -p，然后输入密码，就可以登录mysql了。
+        终于成了。
+        我就跳过了这一步。有问题的话再说。
+    5.安装phpmyadmin并进行相关配置
+        上次装的时候没有注意到这个标题的意思，不仅要安装，还要自己进行一些配置。实际上我觉得，配置比安装更加重要。
+        sudo apt-get install libapache2-mod-auth-mysql php5-mysql phpmyadmin
+        执行命令后，等一会就出现一个画面提示：
+                    正在设定phpmyadmin
+        Please choose the web server that should be automatically configured to run phpMyadmin.
+        Web server to recofigure automatically:
+            [] apache2
+            [] lighttped
+        我直接按了回车。
+
+        在等一会，如下提示：
+          ┌──────────────────────────┤ 正在设定 phpmyadmin ├──────────────────────────┐
+         │                                                                           │
+         │ The phpmyadmin package must have a database installed and configured      │
+         │ before it can be used.  This can be optionally handled with               │
+         │ dbconfig-common.                                                          │
+         │                                                                           │
+         │ If you are an advanced database administrator and know that you want to   │
+         │ perform this configuration manually, or if your database has already      │
+         │ been installed and configured, you should refuse this option.  Details    │
+         │ on what needs to be done should most likely be provided in                │
+         │ /usr/share/doc/phpmyadmin.                                                │
+         │                                                                           │
+         │ Otherwise, you should probably choose this option.                        │
+         │                                                                           │
+         │ Configure database for phpmyadmin with dbconfig-common?                   │
+         │                                                                           │
+         │                    <Yes>                       <No>
+
+        我没有数据库，直接选了yes。然后敲回车。
+        之后是：
+           ┌─────────────────────────┤ 正在设定 phpmyadmin ├─────────────────────────┐
+           │ Please provide the password for the administrative account with which   │
+           │ this package should create its MySQL database and user.                 │
+           │                                                                         │
+           │ Password of the database's administrative user:                         │
+           │                                                                         │
+           │ _______________________________________________________________________ │
+           │                                                                         │
+           │                   <Ok>                       <Cancel>
+        输入密码，敲回车。
+        再然后：
+           ┌─────────────────────────┤ 正在设定 phpmyadmin ├──────────────────────────┐
+           │ Please provide a password for phpmyadmin to register with the database   │
+           │ server.  If left blank, a random password will be generated.             │
+           │                                                                          │
+           │ MySQL application password for phpmyadmin:                               │
+           │                                                                          │
+           │ ________________________________________________________________________ │
+           │                                                                          │
+           │                   <Ok>                       <Cancel>
+        仍然是输入密码敲回车。
+        之后是确认密码：
+                                ┌────┤ 正在设定 phpmyadmin ├─────┐
+                                │                                │
+                                │                                │
+                                │ Password confirmation:         │
+                                │                                │
+                                │ ______________________________ │
+                                │                                │
+                                │     <Ok>         <Cancel>
+
+        再次输入密码，敲回车。
+        好了。装完了。
+        在就是配置了。
+        sudo cp /etc/phpmyadmin/apache.conf /etc/apache2/sites-available/phpmyadmin
+        cd /etc/apache2/sites-enabled/
+        sudo ln -s ../sites-available/phpmyadmin
+        执行完后，在/etc/apache2/sites-enable/目录下就多了一个phpmyadmin文件，原来是000-default,现在变成了两个。
+        之后，重启apache2：
+            sudo /etc/init.d/apache2 restart
+        出现如下提示：
+            * Restarting web server apache2
+            apache2: Could not reliably determine the server's fully qualified domain name,
+            using 127.0.1.1 for ServerName
+            ... waiting apache2: Could not reliably determine the server's fully qualified domain name,
+            using 127.0.1.1 for ServerName
+                                                                                  [ OK ]
+
+
+        快完了！
+        在浏览器中输入以下网址：
+            http://localhost/phpmyadmin
+        如果出现了phpMyAdmin的登录界面，则表示配置成功，接下来就可以对数据库进行操作了。
+
+        哈哈。。。！我终于能用phpmyadmin登录上数据库了。
+        以后不动了，没有必要死也不动了。纠结了很长时间终于可以了。
+
+
+
+
