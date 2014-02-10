@@ -158,7 +158,10 @@
 
         哈哈。。。！我终于能用phpmyadmin登录上数据库了。
         以后不动了，没有必要死也不动了。纠结了很长时间终于可以了。
-
+2014/2/10 周一 22：53
+    ng-class的一个用法：ng-class="{'style1':条件1,'style2':条件2}"
+    input在focus一定会有hover，想要focus不受hover的影响，在focus的样式里可以用！important,这是一个方法。
+    想要input在focus,没有焦点和hover的时候不晃动：改变边框颜色、改变padding和margin都行。
 
 
 
