@@ -196,6 +196,23 @@
             _selectize.open("dropdown_open", function(){}
             _selectize.on("keydown", function(){}
         都不到效果。
+2014/2/13 周四 21：53 168
+     遇到一个奇怪的问题：
+        一个button使用jquery里的splitbutton实现。它的下拉框中有三个item；
+        在页面中item的内容类似如下：
+            <div>
+                example
+                <div>other text</div>
+            </div>
+            在浏览器中第2和3个都是两行；我该成
+            <div>
+                example<div>other text</div>
+            </div>
+            浏览器里就都是一行了，什么原因不知道。
+            还有，也涉及到修改它的focus样式，不想要悬停样式影响了它，也要一同修改。
+
+    修改selectize的input的问题，解决办法：
+        在配置的时候有一个render，在其中把js源码的里面包含文字的那个option_create里的内容覆盖掉就行了。
 
 
 
