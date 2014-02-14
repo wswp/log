@@ -213,6 +213,40 @@
 
     修改selectize的input的问题，解决办法：
         在配置的时候有一个render，在其中把js源码的里面包含文字的那个option_create里的内容覆盖掉就行了。
+2014/2/14 周五 21：02 169
+    url里对非us-ascii文本字符的处理：
+    一、高位字符集：ISO8859-1、CP850，
+        西欧语言体系Windows1252，
+        东欧和中欧ISO8859-2、CP852、Windows1250，
+        俄语KOI8-R、Windows 1251
+        结果：不兼容，计算机之间的文件交换困难
+        诞生Unicode，太大
+        改进版UTF－8，可变宽带编码方式
+        可以表示非us-ascii，但服务器不知道编码方式同样不能解析出正确的url；
+        大多数浏览器方法：路径部分内部转码（UTF－8甚至ISO859-1；）查询字符串按照当前页面的编码方式转换
+    二、IDNA（International Domain Names in Applications,国际化域名）
+        RFC 3490描述：字母、数字、横线编码Unicode
+        RFC 3492方法：应用在DNS，Punycode
+            xn--[us-ascii部分]-[经过编码的Unicode数据]
+        主机名中包含非us-ascii字符，转成Punycode再DNS解析，缺陷：不是特别容易读懂，容易出错；字符样子像，编码不同，解析出来就乱了。
+
+    透明度的样式：
+        .example {
+            opacity: 1.0;
+            filter:alpha(opacity=100);
+        }
+    修改placeholder的方法：
+    input.example::-webkit-input-placeholder {}
+    input.example:-moz-placeholder {}
+    input.example::-moz-placeholder {}
+    input.example:-ms-input-placeholder {}
+
+    .example {box-shadow:1px 2px 3px red;}
+    1px代表x方向上的平移1px，正数是向右负数是向左；
+    2px代表y方向上的平移2px，正数是向下负数是向上；
+    3px是模糊值；
+    
+
 
 
 
