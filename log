@@ -245,7 +245,15 @@
     1px代表x方向上的平移1px，正数是向右负数是向左；
     2px代表y方向上的平移2px，正数是向下负数是向上；
     3px是模糊值；
-    
+
+2014/2/17 周一 20：55 170
+    一个关于修改placeholder的问题，不是
+        input.example::-webkit-input-placeholder {}
+        input.example:-moz-placeholder {}
+        input.example::-moz-placeholder {}
+        input.example:-ms-input-placeholder {}
+    中修改字体没起作用，可能是因为font-family不知道被哪个css覆盖了，
+    在指定一次，它就会去依次查找有没有这种字体，然后就和输入的字是同一种字体了。
 
 
 
