@@ -254,6 +254,32 @@
         input.example:-ms-input-placeholder {}
     中修改字体没起作用，可能是因为font-family不知道被哪个css覆盖了，
     在指定一次，它就会去依次查找有没有这种字体，然后就和输入的字是同一种字体了。
+2014/2/18 周二 21：24 171
+    在一个html页面里调用js函数：
+        onclick="example.test()"
+    在js文件中写成：
+        var example = function() {},console里有错误；
+    写成：
+        function example()
+    就没错。
+    这两种函数声明方式应该是一样的，第一种是声明一个函数然后赋值给了一个变量，第二种是直接声明了一个函数。
+    今天看到的区别可能是这样：
+        var方式的是运行时定义，而function方式的则是编译实运行的。
+        <script>
+          // Error
+          functionOne();
+    
+          var functionOne = function() {
+          }
+        </script>
+
+        <script>
+          // No error
+          functionTwo();
+
+          function functionTwo() {
+          }
+        </script>
 
 
 
