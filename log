@@ -300,13 +300,14 @@
     一些效果以为样式能搞定，其实不行，这时候就要考虑js的事件了。原则上是能用css写就用样式写。
 2014/2/21 周五 23：28 174
     ie8下没有placeholder的地方可以用下面的方法试一下：
-        if(jQuery.placeholder && example.find('input[placeholder]','textarea[placeholder]').size()) {
-            jQuery.shim(example.find('input[placeholder]','textarea[placeholder]'));
+        if（jQuery.placerholder && element.find(‘input[placeholder],textarea[placeholder]’).size()）{
+        	jQuery.placeholder.shim({selector: element.find(‘input[placeholder],textarea[placeholder]’)})
         }
         类似的方法，shim是一个jquery的插件，可以扩展jquery的功能。
 
     另外一个ie8样式的hack：
         属性名：属性值\9;
-
-
-
+        属性名：属性值\0;
+2014/2/24 周一 21：31 175
+    select2实现的一个下拉列表中，可以使用如下的方式更改输入框中标签的背景色：
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0);
