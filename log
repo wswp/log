@@ -315,3 +315,7 @@
     可以使用localstorage来存一些东西的页面里：
         保存：localStorage.setItem('item name',JSON.stringify(item));
         读取：JSON.parse(localStorage.getItem('item name') || {});
+
+    jquery的each循环,要实现break和continue的功能：
+        break，结束整个循环----用return false;
+        continue，结束本次循环，继续下一次循环 --用return ture;﻿
