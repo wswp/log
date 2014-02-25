@@ -311,3 +311,7 @@
 2014/2/24 周一 21：31 175
     select2实现的一个下拉列表中，可以使用如下的方式更改输入框中标签的背景色：
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0);
+2014/2/25 周二 21：24 176
+    可以使用localstorage来存一些东西的页面里：
+        保存：localStorage.setItem('item name',JSON.stringify(item));
+        读取：JSON.parse(localStorage.getItem('item name') || {});
