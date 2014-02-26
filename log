@@ -319,3 +319,5 @@
     jquery的each循环,要实现break和continue的功能：
         break，结束整个循环----用return false;
         continue，结束本次循环，继续下一次循环 --用return ture;﻿
+2014/2/26 周三 21：17 177
+    example：hover {}这样定义的样式在ie8下没有起作用；
