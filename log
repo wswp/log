@@ -321,3 +321,44 @@
         continue，结束本次循环，继续下一次循环 --用return ture;﻿
 2014/2/26 周三 21：17 177
     example：hover {}这样定义的样式在ie8下没有起作用；
+2014/2/27 周四 21:41 178
+    select2美化的input中再ie8下的背景色可以通过设置.select2-container .select2-choice .select2-arrow 的filter：none
+    来使filter不起作用，覆盖select2的css文件里的filter样式.
+
+    jquery插件基础：
+        (function($) {
+            var default = {...};
+            $.fn.myplugins = function(options) {
+                var extend = $.extend(default, options);
+                //code to do
+            };
+        }( jQuery ));
+    我看到的只是一个最简单的写法，每一行没有弄懂！
+
+    haml基础写法：
+        一、层级通过两个空格表示：
+            .example
+            __.example-child-element //__在此表示两个空格
+        二、默认是div，要写明可以使用‘%’ + ‘label-name’:
+            .example 和
+            <div class="example"></div>等价；
+            %span 和
+            <span></span>
+        三、行内样式的一种写法：
+            .example(style="属性名：属性值")
+        四、css和js
+            ：css
+              .example {
+                //style
+              }
+
+            :javascript
+              //js code
+
+            用script包起来的js代码不用空格缩进，保留它原本的格式就行了。
+         五、几个特殊的：
+            {if 条件}code{/if}
+            {for}
+            {foreach}
+            {include}
+            如果可以在一行写就行，不用用其他的东西包起来。
