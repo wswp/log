@@ -362,3 +362,17 @@
             {foreach}
             {include}
             如果可以在一行写就行，不用用其他的东西包起来。
+2014/2/28 周五 178（周日 16：27）
+    ie8下透明度设置：
+        .example {
+            opacity：a；
+            filter： alpha(opacity = a*100); //可以单独写，没有必要非得写在一起，这样写只是因为他们针对的浏览器范围不一样
+        }
+        是不起作用的，要使用如下方式：
+        .example {
+            filter: progid:DXImageTransform.Microsoft.Alpha(opacity=a*100);
+            /*IE6、IE7和IE8下*/
+            -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=a*100)";
+            /*仅在IE8下有效 */
+        }
+        可是，使用在ie8下起作用的filter时，元素中文字的字体有时候会变，所以当悬停是改变透明度，会遇到这样的问题。
