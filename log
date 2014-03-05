@@ -409,3 +409,47 @@
         我的习惯是先把html和css写的差不多，然后再去写js的交互。
         重要的是想清楚，没做完的话并不是特别重要！
         想清楚了再做。
+2014/3/5 周三 21：34 181
+    做一个todo的demo的框架的步骤：
+     1894  mkdir todo
+     1895  cd todo
+     1896  yo --help
+     1897  yo webapp
+     1898  ll
+     1899  bower search storejs
+     1900  bower search store-js
+     1901  bower install store-js --save
+     1902  git init
+     1903  gst
+     1904  git add .bowerrc .editorconfig .gitattributes .gitignore .jshintrc Gruntfile.js app bower.json package.json test
+     1905  gst
+     1906  vi .gitignore
+     1907  gst
+     1908  git add .gitignore
+     1909  gst
+     1910  gc -m'my todo init'
+     1911  grunt serve
+     1912  ll
+     1913  gst
+     1914  git add app/index.html
+     1915  gc -m'basic html'
+     1916  ll app/bower_components/store-js/store.js
+     1917  gst
+     1918  git add app
+     1919  gstg
+     1920  gst
+     1921  gc -m'todo add item feature'
+     这需要安装其他的一些东西。
+     至少yo这条命令在终端里就不认识，因为没有装。
+     详细的情况：http://yeoman.io/
+
+     restful(Representational State Transfer,具象状态转移):
+        1.RESTful架构，就是目前最流行的一种互联网软件架构；
+        2.资源：网络上的一个实体，或者说是网络上的一个具体信息。可以用一个URI（统一资源定位符）指向它，每种资源对应一个特定的URI；
+        3.表现层：把"资源"具体呈现出来的形式，叫做它的"表现层"（Representation）；URI应该只代表"资源"的位置。它的具体表现形式，
+        应该在HTTP请求的头信息中用Accept和Content-Type字段指定，这两个字段才是对"表现层"的描述；
+        4.状态转化：
+            四个表示操作方式的动词：GET、POST、PUT、DELETE，它们分别对应四种基本操作：GET用来获取资源，POST用来新建资源
+        （也可以用于更新资源），PUT用来更新资源，DELETE用来删除资源。
+        (from:http://www.ruanyifeng.com/blog/2011/09/restful.html)
+
