@@ -452,4 +452,30 @@
             四个表示操作方式的动词：GET、POST、PUT、DELETE，它们分别对应四种基本操作：GET用来获取资源，POST用来新建资源
         （也可以用于更新资源），PUT用来更新资源，DELETE用来删除资源。
         (from:http://www.ruanyifeng.com/blog/2011/09/restful.html)
+2014/3/6 周四 21：10 182
+    渐变背景：
+        父级元素：background-image:-webkit-linear-gradient(to bottom, #ffffff, #f2f2f2);
+        background-image:linear-gradient(to bottom,#ffffff,#f2f2f2);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f2f2f2', GradientType=0);
+        这样在ie8和Chrome下都能看到渐变的背景，可是在ie8下有点问题，如果下面的元素有一个margin-top为负数的值，那么他会被背景遮住，看不到了；
+    解决的办法：
+        子级元素：
+            position：relative;
+            z-index: 大一点的数;
+
+    在scss文件下写一个chrome中字体小于12号字体的东西，代码是一样的；
+    遇到的问题：
+
+    @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+      .example {
+        .child-element {
+            display: block;
+            font-size: 10px;
+            -webkit-transform: scale(0.83);
+        }
+      }
+    }
+    这时候它的子元素想距离右边框几个像素，可是它的父亲元素已经到了边上了；通过margin什么的不行，而padding又不能是负的，
+    我的一个解决办法：
+        让子级元素position为relative就好了，然后通过top和left来调节位置。
 
