@@ -478,4 +478,32 @@
     这时候它的子元素想距离右边框几个像素，可是它的父亲元素已经到了边上了；通过margin什么的不行，而padding又不能是负的，
     我的一个解决办法：
         让子级元素position为relative就好了，然后通过top和left来调节位置。
+2013/3/7 周五 183 （周日 10：38）
+    ie8中不支持透明度的写法：
+        .example {
+            opacity：a;
+            filter: alpha(opacity=a*100);
+        }
+    可以使用以下方法：
+        .example {
+            background-color: rgba(0, 0, 0, 0.7);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2000000, endColorstr=#b2000000);
+        }
+    想要达到hover改变透明度的效果的时候：
+        .example:hover {
+            background-color: rgba(0, 0, 0, 1.0);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2000000, endColorstr=#b2000000);
+        }
+        如果只是把filter设置成none，在ie8下文字的字体可能会变的不同，导致hover前和hover后字体明显不一致，影响用户体验。
+
+    关于position的一点东西：
+        使用position为absolute的时候最好在它的父亲元素中写上：
+            position: relative;
+        否则，position为absolute的元素会一直向上找relative元素来定位，直到html标签。
+
+        所以，最好还是成对使用，成对并不是说要一对一，而是absolute的上层元素，当然最好是父亲元素是relative。
+        ps: relative尽量不要和top、left一起使用，可能是不好控制，要使用margin-top、margin-left来控制位置。
+
+        一般用到的地方：
+            tab标签的定位、带三角的一个矩形框、下拉列表、还有一些固定位置的header或者footer的定位。
 
