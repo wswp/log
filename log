@@ -533,4 +533,29 @@
         }
     但是，使用scss就必须要使用上一种方法，scss不识别这些\,*,_等等这些hack标志，编译出的css达不到想要的效果。
 
+    开始学习bootstrap，得先安装，把步骤记录下来，每一步中用到的东西也不认识：
+    一、安装npm
+        想装bootstrap,要使用bower，而bower要使用npm来安装管理，没有npm只能先安装了。
+        npm简介：
+            node package manager，node包管理器。
+        安装：
+            sudo apt-get install npm
+        详情：https://www.npmjs.org/
+    二、安装bower
+        bower是一个包管理工具。
+        全局安装：
+            sudo npm install -g bower
+        报错：
+            Error: failed to fetch from registry: bower
+            暂时没有解决办法。
+            我试了一下apt-get：
+            sudo apt-get install -g bower
+            E: 未知的命令行选项“g” [来自 -g]
+            sudo apt-get install bower
+            E: 未发现软件包 bower
+
+
+
+
+
 
