@@ -553,7 +553,29 @@
             E: 未知的命令行选项“g” [来自 -g]
             sudo apt-get install bower
             E: 未发现软件包 bower
+2014/3/11 周二 21：26 185
 
+    npm配置了一下库：
+        npm config set registry http://registry.npmjs.org/
+    然后：
+        sudo npm install -g bower
+    报错：
+        Error: No compatible version found: bower
+    暂时放弃。
+    直接把bootstrap的源码或者dist文件放在项目目录下就能用了。
+
+    遇到的一个问题：
+        浏览器窗口小于页面内容的时候，页面上会出现滚动条；
+        如果拖动浏览器窗口回到比较大的尺寸，没有问题；拖动滚动条，当页面的内容区域外的背景色不是白色的时候，会出现不想看到的白边。
+        原因是：
+            在一个元素里面设置的宽度比更里层的元素的width值小，所以出现了滚动条，能拖动。
+        给一个元素的宽度赋值时要谨慎。
+
+    今天用haml写页面的感觉：
+        只是写一个登录的界面，两个input，我用了太多的float，因此使用了太多的clearfix；
+        对于行内元素，可以使用display：inline-block来代替使用float的方法来布局。
+
+    ！important在ie8下也是识别的。
 
 
 
