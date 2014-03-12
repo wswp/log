@@ -590,6 +590,37 @@
     最后一点，重构是必须的。
     尤其是在代码结构或页面结构本来就不是很好的时候。
 
+    换一种引入bootstrap的方式：
+
+    一、安装yeoman
+    执行：
+        npm install -g yo
+    报错：
+        Error: No compatible version found: yo
+    网上解决方法：
+        (1)更新node
+            sudo apt-get install node -y
+            Yeoman需要Node的版本号大于等于0.8；
+            依然报错：
+                npm ERR! Error: No compatible version found: yo
+                npm ERR! No valid targets found.
+                npm ERR! Perhaps not compatible with your version of node?
+        (2)另一种更新的方法
+            sudo add-apt-repository ppa:chris-lea/node.js
+                结果：public key "Launchpad chrislea" imported
+            sudo apt-get update
+            sudo apt-get install nodejs -y # newer nodejs package includes npm
+            更新nodejs到了目前的最新版本：v0.10.25
+
+            再一次执行:
+                npm install -g yo,
+            在一次报错，因为没有用管理员的身份去执行：
+                sudo npm install -g yo
+            成功，
+            包括bower和grunt都装好了。
+            应该是可以开始了。
+
+
 
 
 
