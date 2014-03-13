@@ -633,6 +633,17 @@
     最后，执行grunt serve
     就能在浏览器中看到效果了，之后也可以在页面里引入bootstrap的css和js文件，动手做了。
 
+    可是，我在命令行里，输入如下命令：
+        yo webapp
+    没有任何反应，yo --help/-v什么的也没反应。
+    原来是少了一个叫generator的东西。
+    执行：
+        sudo npm install -g generator-webapp
+    在执行yo webapp
+    仍然没有反应。
+
+
+
 
 
 
