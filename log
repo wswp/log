@@ -662,6 +662,41 @@
     css转成scss文件的一条命令：
         sass-convert -F css -T scss source-file-name target-file-path
     这是在源文件目录下执行的。
+2014/3/16 周日 10：48
+    手动删除了nodejs,再次安装不上了，
+        执行命令：sudo apt-get install nodejs；
+        结果：nodejs 已经是最新的版本了，实际上并没有装上，
+        使用： nodejs -v 查看版本号
+            The program 'nodejs' is currently not installed. You can install it by typing:
+            sudo apt-get install nodejs
+        使用: find / -iname node也没有找到。
+
+    应该是只是删除了一些源文件，没有完全删除。手动删除很多时候都会遇到这样的问题。
+    然后，我有去/usr/lib/node_modules下把所有的东西，删除了。
+
+    最后用apt-get卸载：
+        sudo apt-get remove package-name
+    然后在执行：
+        sudo apt-get install package-name(在此处是nodejs)
+
+    接下来：
+        sudo npm install -g yo（安装yo）
+        安装成功，终于有了，用yo -v可以查看版本号了，原来都没有。
+        它应该装上了gurnt和bower，
+        查看bower：
+            bower -v
+            1.3.1
+        查看grunt：
+            grunt -v
+
+            grunt-cli: The grunt command line interface. (v0.1.13)
+            Fatal error: Unable to find local grunt.
+        没有装上gurnt,
+        手动安装：
+            sudo npm install -g grunt-cli
+        到新的目录下：
+            yo webapp
+        成功！
 
 
 
