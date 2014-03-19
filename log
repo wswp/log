@@ -725,6 +725,12 @@
             $.fn.example() {};
         如果是像ajax这样全局性的，就写成这样：
             $.example() {}
+2014/3/19 周三 21：43 191
+    更改tooltipster弹出框的样式的一个方法：
+        在生成弹窗的地方,写如下：
+        theme: tooltipster-diy example,
+        tooltipster-diy可能是清除一些原生样式；
+        这样，就能在example里写样式覆盖它原生的样式了。
 
 
 
