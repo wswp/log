@@ -731,7 +731,43 @@
         theme: tooltipster-diy example,
         tooltipster-diy可能是清除一些原生样式；
         这样，就能在example里写样式覆盖它原生的样式了。
+2014/3/20 周四 22：24 192
+    ps切图：
+        一、自动选择快捷键 v
+        二、切图步骤：
+            选中图层；
+            在右侧的面板中command＋点选图层；
+            command ＋ C；
+            command ＋ N；
+            command ＋ V；
 
+    改变input的placeholder字体大小（在sass中的写法）,
+        input {
+          &::-webkit-input-placeholder,
+          &:-moz-placeholder,
+          &::-moz-placeholder,
+          &:-ms-input-placeholder {
+            font-size: 10px;
+            position: relative;
+            left: value;
+          }
+        ｝
+
+        @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+          input {
+            &::-webkit-input-placeholder {
+              font-size: 10px;
+              position: relative;
+              left: value;
+            }
+          ｝
+        }
+
+    今天写页面的一点问题：
+        一个来回切的标签的页面，两个div，
+        一个使用float和clearfix的方式布局，另一个是用inline-block方式布局，
+        在引入了bootstrap后，实际上看是inline-block的方式表现更好一点。
+        虽然，两者都需要来设定margin什么的来调整位置。
 
 
 
