@@ -768,6 +768,33 @@
         一个使用float和clearfix的方式布局，另一个是用inline-block方式布局，
         在引入了bootstrap后，实际上看是inline-block的方式表现更好一点。
         虽然，两者都需要来设定margin什么的来调整位置。
+2014/3/21 周五 （周日21：21 193）
+    虚度！
+    页面和样式：先实现，后重构。什么时候坐不下去了，就可能会涉及到重构。
+2014/3/24 周日 21：33 194
+    使用
+        @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+            .example {
+                ...;
+                -webkit-transform: scale(0.83);
+            }
+        }
+    来缩放文字，以达到在chrome下也是10号字体的要求；
+    可是它会包括它的元素一起缩小，就算审查元素看到的元素是100x40的尺寸，实际上却达不到，
+    一种方法是在外面包一层其他的元素，我见到的是缩放文字用了两层span来嵌套的.
+    例如：
+        html:
+            <span class="scale-font-wrapper">
+                <span class="scale-font">scale font</span>
+            </span>
+        style:
+            @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: .001dpcm) {
+              scale-font-wrapper {
+                .scale-font {
+                  -webkit-transform: scale(0.83);
+                }
+              }
+            }
 
 
 
