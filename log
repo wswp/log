@@ -771,7 +771,7 @@
 2014/3/21 周五 （周日21：21 193）
     虚度！
     页面和样式：先实现，后重构。什么时候坐不下去了，就可能会涉及到重构。
-2014/3/24 周日 21：33 194
+2014/3/24 周一 21：33 194
     使用
         @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
             .example {
@@ -795,7 +795,20 @@
                 }
               }
             }
-
+2014/3/25 周二 21：40 195
+    情景：
+        一个按钮，悬停时改变背景的透明度。
+        它的结构本来如下：
+        %span text of button
+        .button(onclick="event()")
+        我把背景变化的hover样式放在了span上，因此它挡住了button，不能触发它的事件；
+    解决方法：
+        用外面一层包住，
+        .button-wrapper
+            %span text of button
+            .button(onclick="event()")
+        hover的样式放在wrapper上，用position来定位.button（z-index大一点），这样就能达到效果了。
+    这样，就能达到变化的效果也不会影响按钮的事件触发。
 
 
 
