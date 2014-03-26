@@ -809,7 +809,32 @@
             .button(onclick="event()")
         hover的样式放在wrapper上，用position来定位.button（z-index大一点），这样就能达到效果了。
     这样，就能达到变化的效果也不会影响按钮的事件触发。
-
+2014/3/26 周三 23：10 196
+css缩放图片：
+	.wrapper {
+	
+		width: 600px;
+		height: 500px;
+	}
+	.wrapper img {
+		max-width: 100%;
+		max-height: 100%;
+		width: auto;
+		height: auto;
+	}
+	网上说这种方法可以比例不失真的缩放图片，好像不太好用。
+	还有一种expression的：
+	 	/* for Firefox & IE7 */
+		.thumbImage {
+			max-width: 100px;max-height: 100px;
+		}
+		/* for IE6 */
+		* html .thumbImage { 
+				width: expression(this.width > 100 && this.width > this.height ? 100 : auto);
+				height: expression(this.height > 100 ? 100 : auto);
+		}
+		也没试过。
+	其实最好的方法还是用js来缩放的。
 
 
 
