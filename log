@@ -836,3 +836,34 @@
     在标签上有绑定事件（像onclick什么的）的时候，最好不要用span而要用a代替。
     因为如果使用span的时候，在元素上连续click，它就会一直触发事件，cpu的使用率持续上升，很快就到达100%；
     而使用a就没有这样的问题，它不会一直去触发事件。
+2014/4/2 周三 21：54 201
+    在用angular写的html模板中，想要一个textarea中保持它的内容的格式，可以用下面的方法：
+        ng-bind-html="内容 | space"
+    的确是起作用了。
+
+    phpstrom7试用版过期的解决办法：
+        cd
+        cd Library
+        cd Caches
+        rm -rf WebIde60
+        rm -rf WebIde70
+        rm -rf com.jetbrains.PhpStorm
+        rm -rf WebIde70
+        cd
+        cd Library
+        cd ..
+        cd Library/Application\ Support
+        rm -rf WebIde*
+        cd ..
+        cd Preferences
+        open com.jetbrains.PhpStorm.plist
+        cd WebIde70
+        cd eval
+        cat PhpStorm7.evaluation.key
+        cd ..
+        rm eval/PhpStorm7.evaluation.key
+    其实是一个删除本地机器存储的可能存有相关的过期信息的文件，最后好像没起作用，可能是另有其他的信息；
+    最后是找了一个注册码。
+
+    在一个文字展示区中，都是英文和数字，且中间没有空格和回车，结果文字在页面上就呈现一行，很长很长。没有换行，加一个属性就可以了：
+        word-break: break-all;
