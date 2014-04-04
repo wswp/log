@@ -874,3 +874,20 @@
 
     一个问题，当一个人只写样式和页面，而另一个人写js功能的时候，一般的样式还好说，可是在用js去交互的时候用到的类会麻烦一点，
     而且一但改了样式和结构，尤其是结构，有些功能会受影响，因此这样的方式不是一个很好的做法；但短期内可以去用来锻炼一方面的能力。
+2014/4/4 周五 22：21 203
+    .example {
+        width: 100px;
+        height: 100px;
+        overflow: scroll;
+        position: relative;
+        b {
+            width: 10px;
+            height: 10px;
+            background: url(example.png) no-repeat 0 0;
+            position: absolute;
+            top: -10px;
+            left: 50%;
+        }
+    }
+    在类似的一个结构中，因为example加了scroll这一属性，结果它的内容虽然不会超出去，可以在限定范围内滚动，而b却显示不出来了，是个问题！
+    我的解决办法是在包一层。
