@@ -891,3 +891,22 @@
     }
     在类似的一个结构中，因为example加了scroll这一属性，结果它的内容虽然不会超出去，可以在限定范围内滚动，而b却显示不出来了，是个问题！
     我的解决办法是在包一层。
+2014/4/8 周二 21：33 204
+    一个关于span样式的问题：
+        在同一个div中的span有相同的样式；
+        haml模板：
+            .example
+              .example-span text
+        scss文件：
+            .example {
+              position: relative;
+            }
+            .example-span {
+              ...
+              display: inline-block;
+              margin-left: 10px;
+              ...
+            }
+        可是每个span因为文字内容不同，他们的长度不一样，表现出来的到.example的左边的距离不一样；
+        最后的解决办法：
+            给.example-span加一个长度，再去调整它们到左边的距离
