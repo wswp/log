@@ -910,3 +910,37 @@
         可是每个span因为文字内容不同，他们的长度不一样，表现出来的到.example的左边的距离不一样；
         最后的解决办法：
             给.example-span加一个长度，再去调整它们到左边的距离
+2014/4/9 周三 21：36 205
+    ie8的line－height ==> 盒式模型的问题.
+
+    关于line-height的问题：
+        在chrome下
+            .example {
+                ...
+                height: 20px;
+                line-height: 20px;
+                ...
+            }
+        文字就能垂直居中了；
+        在ie8下，line-height要比20大几个像素才能垂直居中，以类似hack的方式可以让文字在垂直方向上居中，
+        可是要写一些重复的代码，个人感觉不太好，暂时没有其他方法，也只能这样；
+
+        可是如果是input就不太好用了；
+        在input里有文字和没有文字，光标会上下晃动，不知道怎么解决；
+        网上的一种方法：
+            给input一个小一点的height然后用padding-top和padding-bottom来填充，没起作用；
+
+
+    .element {
+        ...
+        width: content-width;
+        height: content-height;
+        ...
+    }
+    W3C的盒式模型：
+        element-width = padding-left + padding-right + border-left + border-right + content-width;
+        element-height = padding-top + padding-bottom + border-top + border-bottom + content-height;
+    IE的盒式模型：
+        element-width = content-width;
+        element-height = content-height;
+    这样写样式的时候，不给行高做特殊处理，在ie8下就可能出现上面的问题。
