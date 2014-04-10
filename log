@@ -944,3 +944,9 @@
         element-width = content-width;
         element-height = content-height;
     这样写样式的时候，不给行高做特殊处理，在ie8下就可能出现上面的问题。
+2014/4/10 周四 22：04 206
+    还是关于昨天的line-height的问题：
+        最后的解决办法，给ie8写了一个hack，有line-height/height/padding-top搭配使用，来达到文字在垂直方向上的效果；
+    有一点问题，就是在xp虚拟机中用ie8查看的时候，input在有没有文字的时候光标会上下错动，可是在另一个window7虚拟机中用ie8查看，却没有这样的问题。
+
+    一个问题，就是虚拟机终究不是真实的环境，要想兼容ie还得是真实的环境，真实的ie浏览器。
