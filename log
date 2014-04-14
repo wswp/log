@@ -952,5 +952,67 @@
     一个问题，就是虚拟机终究不是真实的环境，要想兼容ie还得是真实的环境，真实的ie浏览器。
 2014/4/11 周五（周日 22：43 207）
     之前的用line-height/height/padding-top搭配使用的方法不是一种好的方法，还是要用比较正规一点的方法才行。
+        #example[type='text'], #example[type="text"]:focus {
+            height: 32px;
+            line-height: 32px;
+            font-family: "Arial", "SimSun", "宋体";
+            padding: 0;
+            vertical-align: middle;
+        }
+        为什么要改变font-family,因为默认给的微软雅黑字体不太合适。
     可实际上仍然没有解决这个input中有没有文字的时候光标会上下错的问题，连百度和google在ie下的输入框都有问题，
     当然也能解决，只是要用js去动态改变元素的类。
+2014/4/14 周一 21：45 208
+    font: 12px/1.5;
+    这种写法和
+    font-size: 12px;
+    line-height: 1.5;
+    相当。
+
+    box－sizing相关的一点知识：
+        .example {
+            width: 100px;
+            height: 50px;
+            padding: 10px;
+            margin: 20px;
+            border: 30px solid #ccc;
+        }
+
+        W3C标准：
+            外盒尺寸：
+            example width = width + padding-left + padding-right + border-left + border-right + margin-left + margin-right;
+            (example width =  100 + 2x10 + 2x30 + 2x20 = 220)
+            example height = height + padding-top + padding-bottom + border-top + border-bottom + margin-top + margin-bottom;
+            (example height =  50 + 2x10 + 2x30 + 2x20 = 170)
+            内盒尺寸：
+            example width = width + padding-left + padding-right + border-left + border-right;
+            (example width =  100 + 2x10 + 2x30 = 180)
+            example height = height + padding-top + padding-bottom + border-top + border-bottom;
+            (example height =  50 + 2x10 + 2x30 = 130)
+        IE6以下标准：
+            外盒尺寸：
+            example width = width + margin-left + margin-right;
+            (example width =  100 + 2x20 = 140)
+            example height = height + margin-top + margin-bottom;
+            (example height =  50 + 2x20 = 90)
+            内盒尺寸：
+            example width = width;
+            (example width =  100)
+            example height = height;
+            (example height =  50)
+
+        box-sizing语法：
+            box-sizing ： content-box || border-box || inherit
+            content-box:此值为其默认值，其让元素维持W3C的标准Box Model(content-box-width = 220;content-box-height = 170)；
+            border-box:此值让元素维持IE传统的Box Model（IE6以下版本）(border-box-width = 100;border-box-height = 50)；
+        作用：
+            1、拯救布局
+                使用border-size来防止padding\border撑破父级元素；
+            2、统一form元素的风格
+            (1)[type="submit"]、[type="reset"]、button、[type="text"]、select、textarea默认情况下都带有2px的border;
+            (2)[type="submit"]、[type="reset"]、button默认情况下会有6px的左右padding；height在mac系统下会比在winxp win7系统下少1px,
+               只有16px,（12px的字体时高度为17px）;
+            (3)[type="text"]默认情况下会有1px的上下padding；WinXP和Win7下高度为15px，Mac系统下为14px
+            (4)[type="checkbox"]默认情况下会有margin：3px 3px 3px 4px,并且宽/高度默认为13px(IE6，IE7默认大约是15px，Mac系统下只有9px)
+            (5)[type="radio"]默认情况下会有margin: 3px 3px 0 5px的外边，并且宽/高度默认为13px（IE6,IE7默认大约是15px,Mac系统下只有9px）
+            (6)textarea默认情况带有1px的上下margin；
