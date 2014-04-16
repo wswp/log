@@ -1016,3 +1016,17 @@
             (4)[type="checkbox"]默认情况下会有margin：3px 3px 3px 4px,并且宽/高度默认为13px(IE6，IE7默认大约是15px，Mac系统下只有9px)
             (5)[type="radio"]默认情况下会有margin: 3px 3px 0 5px的外边，并且宽/高度默认为13px（IE6,IE7默认大约是15px,Mac系统下只有9px）
             (6)textarea默认情况带有1px的上下margin；
+2014/4/15 周二 209
+2014/4/16 周三 21：42 210
+     %a.btn-blue-small(onclick=" " href="javascript: {}")
+         %span.scale-font-wrapper
+              %span.scale-font 提交
+    默认／hover／active三种背景，在chrome下没有问题，在ie8下active时背景img没起作用，原来是受了
+     %span.scale-font-wrapper
+        %span.scale-font 提交
+    的影响，实际上点的是span，span没有active
+
+    IE8，IE9以及IE10，都是不支持从子元素触发:active的（不向上传播）。这个问题亦存在于Opera，但只有在子元素为display:block时才触发。
+    解决办法：
+        避免在CSS按钮下增加占用大面积的元素（Twitter Bootstrap的icon很小，所以问题不明显）；
+        用“类”代替“伪类”，再用Javascript补救缺失的事件。
