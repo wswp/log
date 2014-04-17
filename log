@@ -1030,3 +1030,11 @@
     解决办法：
         避免在CSS按钮下增加占用大面积的元素（Twitter Bootstrap的icon很小，所以问题不明显）；
         用“类”代替“伪类”，再用Javascript补救缺失的事件。
+2014/4/17 周四 22：07 211
+
+    jquery.html5-placeholder-shim.js插件在ie8下如果是动态生成的input和textarea要显示placeholder要手动调用一下：
+    jQuery.placeholder.shim({selector:’#example’});
+
+    使用a标签模拟的按钮，如果内部有span元素，在ie下active会受影响，样式不能正确显示；
+    换一种方式实现，用button，在ie下会有背景错位的问题，背景图片会向左上方分别移动2px，用background-position可以调整过来，
+    只是在点击后移开或双击时有问题，背景图会一闪一闪的。
