@@ -1038,3 +1038,25 @@
     使用a标签模拟的按钮，如果内部有span元素，在ie下active会受影响，样式不能正确显示；
     换一种方式实现，用button，在ie下会有背景错位的问题，背景图片会向左上方分别移动2px，用background-position可以调整过来，
     只是在点击后移开或双击时有问题，背景图会一闪一闪的。
+2014/4/18 周五 22：06 212
+    纯样式button：
+    .example {
+      background: -webkit-linear-gradient(top, #1e84cf, #165db2);
+      background: -moz-linear-gradient(top, #1e84cf, #165db2);
+      background: linear-gradient(top, #1e84cf, #165db2);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e84cf', endColorstr='#165db2', GradientType=0);
+      &:active {
+        background: -webkit-radial-gradient(center, ellipse, #078dd9, #0e48a4);
+        background: -moz-radial-gradient(center, ellipse, #078dd9, #0e48a4);
+        background: radial-gradient(center, ellipse, #078dd9, #0e48a4);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#078dd9', endColorstr='#124ca6', GradientType=0);
+      }
+    }
+    有个问题，就是放射渐变在ie下的问题：
+        IE的渐变滤镜不支持中间颜色点，不支持自定义渐变角度和放射渐变。这意味着你只能使用指定水平/垂直、线性、并且只有起始和终点两色的渐变。
+    苹果官网的一个按钮样式：
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f0f0f0",endColorstr="#d6d6d6");
+        background: -webkit-gradient(linear,left top,left bottom,from(#f0f0f0),to(#d6d6d6));
+        background: -moz-linear-gradient(top,#f0f0f0,#d6d6d6);
+        background-image: -o-linear-gradient(top,#f0f0f0 0,#d6d6d6 100%);
+        background-image: linear-gradient(to bottom,#f0f0f0 0,#d6d6d6 100%)
