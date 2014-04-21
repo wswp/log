@@ -1206,3 +1206,39 @@
                         可以看到页面输出了：hello world
 
                         nodejs的环境就算好了。
+2014/4/22 周一 22：39 214
+    jquery-pjax;
+    pushState + ajax = pjax
+
+    继续install npm:
+        sudo apt-get install npm
+        成功： npm -v ===> 1.4.3
+        sudo npm install -g yo bower grunt-cli
+        sudo npm install -g generator-webapp
+        结果yo -v/bower -v/grunt -v都没有返回结果？？？
+
+        网上一种说法（have to install nodejs in this way）：
+            sudo apt-get install python-software-properties
+            sudo add-apt-repository ppa:chris-lea/node.js
+            sudo apt-get update
+            sudo apt-get install nodejs
+
+
+        git clone https://github.com/yeoman/yo
+        Edit the package.json..
+            vim package.json
+        .. to remove these lines..
+
+            "scripts": {
+                "test": "grunt",
+                "postinstall": "node ./scripts/doctor",
+                "postupdate": "node ./scripts/doctor"
+            },
+        Then, install it using npm..
+            cd yo
+            npm install -g
+        If you want to clean up you can remove the Yeoman repo..
+            cd ..
+            rm -R yo/
+        完成之后 yo -v仍然没有返回结果！！！
+
