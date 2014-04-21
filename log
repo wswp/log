@@ -1060,3 +1060,149 @@
         background: -moz-linear-gradient(top,#f0f0f0,#d6d6d6);
         background-image: -o-linear-gradient(top,#f0f0f0 0,#d6d6d6 100%);
         background-image: linear-gradient(to bottom,#f0f0f0 0,#d6d6d6 100%)
+2014/4/20 周日 8：33 213
+    这两天装了win7装linux，遇到一些问题；
+    1.linux下没有文件或者目录：
+        No such file or directory: '/home/wupeng/.bashrc'
+    在/home/wupeng的目录下新建一个文件就好了
+    2.安装phpstorm必须要现安装openjdk-7-jdk;
+    3.安装mysql的时候没有输入密码，结果要在phpmyadmin的config.inc.php里加上
+        $cfg['Servers'][$i]['AllowNoPassword'] = 'true';
+    4.安装yo
+        sudo apt-get install nodejs;
+        sudo apt-get install npm;
+        sudo npm install -g yo;
+            报错：Error: failed to fetch from registry: yo
+
+        装的nodejs不对，
+        先卸载：sudo apt-get remove nodejs --purge
+        然后从node官网clone下来，编译安装：
+            cd ./configure
+            sudo make install
+            报错：
+                flock: g++: No such file or directory
+                make[1]: *** [/home/wupeng/Project/install/node/out/Release/openssl-cli] Error 69
+                make[1]: Leaving directory `/home/wupeng/Project/install/node/out'
+                make: *** [node] Error 2
+            我认为是没装g++；
+            安装g++:
+                sudo apt-get install g++
+            然后是在重新来一次；
+                sudo make
+                sudo make install
+                可以了，之后装npm，装yo，
+                可以查看yo的版本，bower的版本，
+                grunt还得另装：
+                sudo npm install -g grunt-cli;
+                可是使用yo webapp的时候总是不行，报错：
+                    npm ERR! Error: EACCES, mkdir '/home/wupeng/tmp/npm-3600-i8WtX-77'
+                    npm ERR!     at Error (native)
+                    npm ERR!  { [Error: EACCES, mkdir '/home/wupeng/tmp/npm-3600-i8WtX-77']
+                    npm ERR!   stack: 'Error: EACCES, mkdir \'/home/wupeng/tmp/npm-3600-i8WtX-77\'\n    at Error (native)',
+                    npm ERR!   errno: -13,
+                    npm ERR!   code: 'EACCES',
+                    npm ERR!   path: '/home/wupeng/tmp/npm-3600-i8WtX-77',
+                    npm ERR!   parent: 'test' }
+                    npm ERR!
+                    npm ERR! Please try running this command again as root/Administrator.
+                sudo yo webapp;
+                    报错：
+                    Since yo is a user command, there is no need to execute it with superuser
+                    permissions. If you're having permission errors when using yo without sudo,
+                    please spend a few minutes learning more about how your system should work
+                    and make any necessary repairs.
+
+                    A quick solution would be to change where npm stores global packages by
+                    putting ~/npm/bin in your PATH and running:
+                    npm config set prefix ~/npm
+                修改权限：
+                一、可以使用命令chmod来为文件或目录赋予权限。
+                    Linux/Unix的档案存取权限分为三级:档案拥有者、群组、其他。利用chmod可以藉以控制档案如何被他人所存取
+                二、详解
+                1此命令有两种使用方法，一种是chmod后加数字，后接文件名
+                chmod abc file
+                其中a,b,c各为一个数字，分别表示User、Group、及Other的权限。
+                r=4，w=2，x=1
+                若要rwx属性则4+2+1=7；
+                若要rw-属性则4+2=6；
+                若要r-x属性则4+1=5。
+
+                修改了tmp文件夹的权限就行了；
+                sudo chmod 777 tmp
+
+                在次执行yo webapp就可以了；
+                在grunt serve的时候不行，报错
+                    Warning: Loading "sass.js" tasks...ERROR
+                    >> Error: Cannot find module 'each-async'
+                    Warning: Task "sass:server" not found. Use --force to continue.
+                没有sass，要装sass，装完后发现没有ruby，在去装ruby。
+                安装ruby：sudo apt-get install ruby
+
+                在装sass：
+                    sudo gem install sass;
+                grunt serve仍然报错：
+                    Loading "sass.js" tasks...ERROR
+                    >> Error: Cannot find module 'each-async'
+                npm list:
+                    把红色的单独装一下
+                    sudo npm install -g node-sass;
+
+                都还是不对，擦的。
+                都看了一下其他需要的东西，在执行了一下grunt serve：
+                    Loading "Gruntfile.js" tasks...ERROR
+                    >> Error: Cannot find module 'lodash'
+                sudo npm install -g lodash之后也不行。
+
+
+                实在搞不了了，全部手动删除，然后卸载node。
+
+                卸载node：
+                    安装Node.js
+                    Download        $ lynx http://nodejs.org
+                    Extract
+                        $ tar zxvf node-vNN.tar
+                        $ cd node-vNN
+                        Configure        $ ./configure --prefix=/usr/local/node ,#默认安装位置
+                        Compile        $ make
+                        Install        $ sudo make install
+                        Test        $ node -v
+                    卸载：
+                    　　＃sudo make uninstall （干掉make install命令时装进去的文件,需要管理员身份)
+                    　　只删除make时产生的临时文件：
+                    　　＃make clean
+                        同时删除configure和make产生的临时文件
+                        # make distclean
+                    升级Node版本：
+                        直接下载源码重新编译，安装。（覆盖了旧的版本）
+
+                卸载ruby：
+                    sudo apt-get purge ruby*
+
+
+                重新来过：
+                    一、install ruby
+                        sudo apt-get install ruby
+                    二、install sass
+                        sudo gem install sass
+                    三、install compass
+                        sudo gem install compass
+                    四、install nodejs
+                        下载源码包；
+                        解压:sudo tar zxvf node-v0.10.26.tar.gz
+                        编译:sudo make
+                        安装:sudo make install
+
+                        新建example.js
+                            var http = require('http');
+
+                            http.createServer(function(req, res){
+                              res.writeHead(200, {'Content-Type': 'text/plain'});
+                              res.end('Hello World\n');
+                            }).listen(1337);
+                            console.log('Server running at port 1337');
+                        运行：node example.js
+                        结果：Server running at port 1337
+                        在浏览器中输入http://127.0.0.1:1337/
+                        可以看到页面输出了：hello world
+
+                        nodejs的环境就算好了。
