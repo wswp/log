@@ -1206,7 +1206,7 @@
                         可以看到页面输出了：hello world
 
                         nodejs的环境就算好了。
-2014/4/22 周一 22：39 214
+2014/4/21 周一 22：39 214
     jquery-pjax;
     pushState + ajax = pjax
 
@@ -1241,4 +1241,14 @@
             cd ..
             rm -R yo/
         完成之后 yo -v仍然没有返回结果！！！
-
+2014/4/22 周二 21：37 215
+    在ie下中input文字垂直居中的方法：
+        .example {
+            ...
+            font-size: apx;
+            height: apx;
+            line-height: apx;
+            padding-top: bpx;
+            padding-bottom: cpx;
+        }
+        (b和c不一定相等)
