@@ -1252,3 +1252,20 @@
             padding-bottom: cpx;
         }
         (b和c不一定相等)
+2014/4/23 周三 22：46 216
+    node环境没问题，npm没问题，install yo/bower/grunt-cli都没问题，就是装完yo/bower/grunt-cli都不能用，换一种node的安装方式。
+
+    sudo apt-get install python-software-properties
+    sudo add-apt-repository ppa:chris-lea/node.js
+    sudo apt-get update
+    sudo apt-get install nodejs
+2014/4/24 周四 22：39 217
+    渐变背景：
+    background: -webkit-gradient(linear,0% -1%,0% 9%,from(#5a5a5a),to(rgba(255,255,255,0.5))),-webkit-gradient(linear,center top,center bottom,color-stop(40%,rgba(122,122,122,0.6)),color-stop(100%,rgba(255,255,255,0.5)));
+    background: -moz-linear-gradient(top,rgba(90,90,90,1) 0,rgba(255,255,255,0.5) 10%),-moz-linear-gradient(top,rgba(122,122,122,0.7) 40%,rgba(255,255,255,0.5) 100%);
+    background: -o-linear-gradient(top,rgba(90,90,90,1) 0,rgba(255,255,255,0.5) 10%),-o-linear-gradient(top,rgba(122,122,122,0.7) 40%,rgba(255,255,255,0.5) 100%);
+    background: -ms-linear-gradient(top,rgba(90,90,90,1) 0,rgba(255,255,255,0.5) 10%),-ms-linear-gradient(top,rgba(122,122,122,0.7) 40%,rgba(255,255,255,0.5) 100%);
+    background: linear-gradient(top,rgba(90,90,90,1) 0,rgba(255,255,255,0.5) 10%),linear-gradient(top,rgba(122,122,122,0.7) 40%,rgba(255,255,255,0.5) 100%);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr="#d6d6d6", endColorstr="#fff")";
+    filter:progid:DXImageTransform.Microsoft.gradient(gradientType=0,startColorstr="#d6d6d6",endColorstr="#ffffff");
+    -moz-box-shadow: inset 0 5px 10px -1px rgba(90,90,90,0.5),inset 2px 35px 65px 5px rgba(235,235,235,0.5);
