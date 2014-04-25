@@ -1269,3 +1269,10 @@
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr="#d6d6d6", endColorstr="#fff")";
     filter:progid:DXImageTransform.Microsoft.gradient(gradientType=0,startColorstr="#d6d6d6",endColorstr="#ffffff");
     -moz-box-shadow: inset 0 5px 10px -1px rgba(90,90,90,0.5),inset 2px 35px 65px 5px rgba(235,235,235,0.5);
+2014/4/25 周五 22:48 218
+    ie7/8下background－size不起作用,只在ie9才开始支持。
+    兼容IE8的方法：
+    /*for ie8 and less*/
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='images/logo.gif', sizingMethod='scale');
+        -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='images/logo.gif', sizingMethod='scale')";
+        但是它会缩放到整个元素的大小。如果整个背景还好说，不想要整个元素现实背景图就有问题。
