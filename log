@@ -1276,3 +1276,46 @@
         filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='images/logo.gif', sizingMethod='scale');
         -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='images/logo.gif', sizingMethod='scale')";
         但是它会缩放到整个元素的大小。如果整个背景还好说，不想要整个元素现实背景图就有问题。
+
+    另一种方法install nodejs:
+        一、下载源码包：
+            http://nodejs.org/download/
+            node-v0.10.26.tar.gz
+
+            Note: Python 2.6 or 2.7 is required to build from source tarballs.
+
+            python -v:Python 2.7.4 (default, Apr 19 2013, 18:32:33)
+        二、解压：
+            sudo cp -r Downloads/node-v0.10.26.tar.gz /usr/local/src //不行
+            sudo wget http://nodejs.org/dist/v0.10.26/node-v0.10.26.tar.gz
+            sudo tar zxvf node-v0.10.26.tar.gz
+        三、配置
+            ./configure
+        四、编译
+            sudo make
+        五、安装
+            sudo make install
+
+            cp /usr/local/bin/node /usr/sbin/
+
+
+            总是有错，要更新一些东西。
+            sudo apt-get update报错：
+            W: 无法下载 gzip:/var/lib/apt/lists/partial/archive.ubuntu.com_ubuntu_dists_raring_universe_binary-i386_Packages  Hash 校验和不符
+            W: 无法下载 gzip:/var/lib/apt/lists/partial/archive.ubuntu.com_ubuntu_dists_raring-updates_main_binary-i386_Packages  Hash 校验和不符
+            W: 无法下载 gzip:/var/lib/apt/lists/partial/archive.ubuntu.com_ubuntu_dists_raring-updates_universe_binary-i386_Packages  Hash 校验和不符
+            E: Some index files failed to download. They have been ignored, or old ones used instead.
+
+            解决办法:
+                可以将目录下/var/lib/apt/lists/partial/所有的文件清掉
+                sudo rm /var/lib/apt/lists/* -vf
+
+            没有在去管，继续装yo。
+            sudo npm install -g yo报错：
+            npm ERR! If you are behind a proxy, please make sure that the
+            npm ERR! 'proxy' config is set properly.  See: 'npm help config'
+            解决：sudo npm config proxy null
+
+
+
+            一直没能用的原因，原来是装好了，只是只建立了一次软连接，可能命令行里不支持~,在建立一次软连接，链接两次就好了。
