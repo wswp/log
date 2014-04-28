@@ -2047,3 +2047,14 @@
 
 
             一直没能用的原因，原来是装好了，只是只建立了一次软连接，可能命令行里不支持~,在建立一次软连接，链接两次就好了。
+2014/4/28 周一 21：04
+    html css
+    html5 css3
+    haml sass(scss less)
+    jade stylus
+
+    z-index和position要搭配使用：
+        不设置position只设置z-index是不起作用的，就算z-index更大也会被后面的元素覆盖；
+        只设置position,不设置z-index时，元素会被设置了position和z-index的覆盖；
+        都设置了,position和z-index都有，元素的z-index大的覆盖小的。
+    详情：http://www.neoease.com/tutorials/z-index/
