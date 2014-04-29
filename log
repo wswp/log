@@ -2058,3 +2058,8 @@
         只设置position,不设置z-index时，元素会被设置了position和z-index的覆盖；
         都设置了,position和z-index都有，元素的z-index大的覆盖小的。
     详情：http://www.neoease.com/tutorials/z-index/
+2014/4/29 周二 22：00
+    在chrome下form中的input的背景色会自动填充上，想要覆盖也不太好，只要在form中添加属性就好了
+        <form autocomplete="off">
+        ...
+        </form>
