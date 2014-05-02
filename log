@@ -2084,3 +2084,62 @@
         把当前的修改保存，pull后在把保存的现场恢复：
             git stash
             git stash pop
+
+
+        jeet
+        1.什么是jeet？
+            人类的布局方式，按照人类理解方式去完成布局，而非按照机器能读懂的方式去布局。
+        2.特性：
+            （1）灵活性（flexibility）
+                jeet基于css预处理器，不用受限于.col-6这样的类，可以传分数、十进制数或者两者的组合来创建完全自定义的网格；
+            （2）速度（speed）
+            （3）整合（integration）
+                jeet可以在很多环境中使用，无论是scss的静态网站、stylus写法的node包或者是Rails应用。只要scss和stylus能工作，
+                jeet就能工作。
+        3.优势
+                        bootstrap(grid)     foundation(grid)    jeet
+            开始简单        Y                       Y              Y
+            语法灵活        N                       N              Y
+            自定义网格       N                      N               Y
+            高精度          N                       N              Y
+            真实的列        N                       N              Y
+        4.开始
+
+            SCSS INSTALLATION
+            Install Ruby [ Windows , Mac/Linux ]
+
+            gem install sass
+            cd ~/Project
+            svn checkout https://github.com/mojotech/jeet/trunk/scss/jeet
+            @import 'jeet/index';
+
+            goes at the top of ~/Project/foo.scss
+
+
+            STYLUS INSTALLATION
+
+            Install NodeJS
+            npm install -g stylus jeet
+            cd ~/Project
+            @import 'jeet'
+
+            goes at the top of ~/Project/foo.styl
+        5.API
+            column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet-gutter)
+                column是所有grid系统中最强大的功能。指定一个比例（分数、十进制数）
+                offset使元素偏移，例如：column(1/4,offset: 1/4)；
+                cycle用来显示重复元素；
+            span(ratio = 1, offset = 0)
+            shift(ratios = 0, col_or_span = column, gutter = jeet-gutter)
+            unshift()
+            edit()
+            center(max_width = 1410px, pad = 0)
+                使元素居中，并设置宽度和左右的padding；
+            stack(pad = 0, align = center)
+                参数为padding和文字居中方式；对移动设备更具有适用性。
+            unstack()
+                取消stack()；使用之后，不会自动还原调用column的状态，需要在手工调用一次column。
+            align(direction = both)
+                使用position: absolute来于它们的容器对其，无论是水平居中还是垂直居中，这样在ie9+版本中垂直居中就容易了。
+            cf()
+                Nicholas Gallagher的清除浮动方式，用来包裹column和span的集合。
