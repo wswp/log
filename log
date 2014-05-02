@@ -2047,7 +2047,7 @@
 
 
             一直没能用的原因，原来是装好了，只是只建立了一次软连接，可能命令行里不支持~,在建立一次软连接，链接两次就好了。
-2014/4/28 周一 21：04
+2014/4/28 周一 21：04 219
     html css
     html5 css3
     haml sass(scss less)
@@ -2058,8 +2058,29 @@
         只设置position,不设置z-index时，元素会被设置了position和z-index的覆盖；
         都设置了,position和z-index都有，元素的z-index大的覆盖小的。
     详情：http://www.neoease.com/tutorials/z-index/
-2014/4/29 周二 22：00
+2014/4/29 周二 22：00 220
     在chrome下form中的input的背景色会自动填充上，想要覆盖也不太好，只要在form中添加属性就好了
         <form autocomplete="off">
         ...
         </form>
+2014/4/30 周三（周五 8：50 221）
+    chrome自动填充表单中input的背景色问题：
+        方法1：<form  autocomplete="off"></form>
+            没有解决，focus的时候会出现
+        方法2：
+          input:-webkit-autofill
+            -webkit-box-shadow: 0 0 0px 1000px white inset
+
+          It work for me!
+
+        stylus针对ie8的hack写法
+          input
+            margin-right: 5px
+            vertical-align: s("middle\0/")
+            margin-top: s("-3px\0/")
+
+        在加入一些响应式设计的js后，media quary就没办法用了，暂时可以用这种方法代替。
+
+        把当前的修改保存，pull后在把保存的现场恢复：
+            git stash
+            git stash pop
