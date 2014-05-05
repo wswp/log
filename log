@@ -2143,3 +2143,17 @@
                 使用position: absolute来于它们的容器对其，无论是水平居中还是垂直居中，这样在ie9+版本中垂直居中就容易了。
             cf()
                 Nicholas Gallagher的清除浮动方式，用来包裹column和span的集合。
+2014/5/4 周日
+2014/5/5 周一 21：46 222
+    linux chrome goagent:
+        1.创建google帐号；
+        2.申请应用id；
+        3.下载goagent；
+        4.上传goagent的server端到应用；
+            出错需要安装一个东西就好了
+        5.配置local端；
+        6.安装并配置浏览器插件；
+        7.启动-》使用。
+    win7 chrome goagent:
+        以上在linux下配置后，在win7下不能用；
+
