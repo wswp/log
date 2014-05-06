@@ -2143,8 +2143,8 @@
                 使用position: absolute来于它们的容器对其，无论是水平居中还是垂直居中，这样在ie9+版本中垂直居中就容易了。
             cf()
                 Nicholas Gallagher的清除浮动方式，用来包裹column和span的集合。
-2014/5/4 周日
-2014/5/5 周一 21：46 222
+2014/5/4 周日 222
+2014/5/5 周一 21：46 223
     linux chrome goagent:
         1.创建google帐号；
         2.申请应用id；
@@ -2156,4 +2156,17 @@
         7.启动-》使用。
     win7 chrome goagent:
         以上在linux下配置后，在win7下不能用；
+2014/5/6 周二 21：56 224
+img的垂直水平居中问题：
+    .wrap {
+        width: a px;
+        height: b px;
+        line-height: b-3 px;
+        img {
+            max-width: a px;
+            max-height: b px;
+            vertical-align: middle;
+        }
+    }
 
+用display: table-cell的方式在ie8下上传宽图片时图片会在错位。
