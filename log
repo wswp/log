@@ -2170,3 +2170,17 @@ img的垂直水平居中问题：
     }
 
 用display: table-cell的方式在ie8下上传宽图片时图片会在错位。
+2014/5/7 周三 225
+2014/5/8 周四 226
+2014/5/9 周五 227
+2014/5/12 周一 21：24 228
+    .example {
+       width: a px;
+       height: b px;
+       margin-top: - a/2 px;
+       margin-left: -b/2 px;
+       position: fixed;
+       top: 50%;
+       left: 50%;
+    }
+    fix在窗口的元素水平居中。
