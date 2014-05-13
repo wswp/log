@@ -2184,3 +2184,18 @@ img的垂直水平居中问题：
        left: 50%;
     }
     fix在窗口的元素水平居中。
+2014/5/13 周二 21：52 229
+    inline-block布局时元素的间隙解决办法：
+        1.font-size: 0;//不起作用
+        2.it work!
+            .example {
+                ...
+                word-spacing: -6px;
+                ...
+                .child {
+                    ...
+                    word-spacing: 0px;
+                    ...
+                }
+            }
+        3.负margin，虽然起作用，但是觉得不太好。
